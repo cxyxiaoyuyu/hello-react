@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+
+.container {
+  width: 500px;
+  margin: 30px auto;
+  border: 2px solid #aaa;
+  padding: 20px;
+}
+.list {
+  border: 1px solid #eee;
+  margin: 10px 0;
+}
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.item:hover {
+  background: skyblue;
+}
+.delete {
+  visibility: hidden;
+}
+.item:hover > .delete {
+  visibility: visible;
+}
