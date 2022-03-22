@@ -1,0 +1,20 @@
+.search {
+  width: 500px;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+.input {
+  height: 50px;
+  border: 1px solid red;
+}
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.list div {
+  padding: 10px;
+}
+.list .card a {
+  display: flex;
+  flex-direction: column;
+}
