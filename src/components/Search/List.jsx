@@ -1,8 +1,24 @@
 import React, { Component } from "react";
 
 export default class List extends Component {
+  state = {
+    users: [],
+    isFirst: true, // 是否为第一次打开页面
+    isLoading: false, // 是否处于加载中
+    err: "", // 存储请求相关的错误信息
+  };
+  componentDidMount(){
+    const {pubsub} = this.props 
+    this.token = pubsub.subscribe('changeState',(_,stateObj)=>{
+      this.setState(stateObj) 
+    })
+  }
+  componentWillUnmount(){
+    // 取消订阅
+    this.props.pubsub.unsubscribe(this.token) 
+  }
   render() {
-    const { users, isFirst, isLoading, err } = this.props;
+    const { users, isFirst, isLoading, err } = this.state;
     return (
       <div className="list">
         {isFirst ? (
