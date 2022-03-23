@@ -1,22 +1,19 @@
-import { Component } from "react";
-// import TodoList from "./components/TodoList";
-import Search from './components/Search'
-import axios from 'axios'
+import { Link, Outlet } from "react-router-dom";
 
-class App extends Component {
-  getStudentData1 = () => {
-    axios.get('api/students').then(res => {
-      console.log(res.data) 
-    }) 
-  }
-  render() {
-    return (
-      <div className="App">
-        {/* <TodoList /> */}
-        <Search />
-      </div>
-    );
-  }
+export default function App() {
+  return (
+    <div>
+      <h1>Bookkeeper</h1>
+      <nav
+        style={{
+          borderBottom: "solid 1px",
+          paddingBottom: "1rem",
+        }}
+      >
+        <Link to="/invoices">Invoices</Link> |{" "}
+        <Link to="/expenses">Expenses</Link>
+      </nav>
+      <Outlet />
+    </div>
+  );
 }
-
-export default App;
